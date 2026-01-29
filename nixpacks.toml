@@ -7,7 +7,7 @@ aptPkgs = [
   "php8.2-xml",
   "php8.2-zip",
   "php8.2-curl",
-  "php8.2-gd"
+  "php-gd"
 ]
 
 [start]
