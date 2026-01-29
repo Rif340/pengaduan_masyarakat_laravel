@@ -6,8 +6,8 @@
   },
   "deploy": {
     "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT",
-    "healthcheckPath": "/api/health",
-    "healthcheckTimeout": 30,
-    "healthcheckMaxDuration": 60
+    "healthcheckPath": "/health.php",
+    "healthcheckTimeout": 10,
+    "healthcheckMaxDuration": 30
   }
 }
