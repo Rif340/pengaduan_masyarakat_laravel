@@ -16,6 +16,33 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// ==================== RAILWAY HEALTH CHECK ====================
+Route::get('/api/health', function () {
+    return response()->json([
+        'status' => 'healthy',
+        'timestamp' => now(),
+        'service' => 'Pengaduan Masyarakat Laravel',
+        'routes_available' => true
+    ]);
+});
+
+Route::get('/', function () {
+    return response()->json([
+        'message' => 'Sistem Pengaduan Masyarakat API',
+        'version' => '1.0',
+        'endpoints' => [
+            '/api/health' => 'Health check status',
+            '/login' => 'Login pengguna',
+            '/register' => 'Register pengguna',
+            '/pengaduan' => 'Data pengaduan (butuh auth)'
+        ],
+        'documentation' => 'Sistem pengelolaan pengaduan masyarakat'
+    ]);
+});
+// ==================== END RAILWAY HEALTH CHECK ====================
+
+// Route yang sudah ada (JANGAN DIUBAH):
 Route::get('/sementara2', [PetugasController::class, 'sementara',]);
 Route::post('/register', [AuthController::class, 'register',]);
 Route::get('/register', [AuthController::class, 'tampil_register',]);
